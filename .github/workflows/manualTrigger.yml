@@ -45,4 +45,4 @@ jobs:
       - name: Unconditional Step After Ifs
         run: echo 'I am a step after all the ifs and I should always run'
       - name: Test Using && and || for Expressions
-        run: echo ${{ (true && "true value") || "false value" }}
+        run: echo ${{ (true && 'true value') || 'false value' }}
