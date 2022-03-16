@@ -18,5 +18,9 @@ jobs:
       - name: Do printing
         run: echo commit ${{ github.event.inputs.commit }} &&
           echo push.ref ${{ github.event.ref }} &&
+          echo push.after ${{ github.event.after }} &&
+          echo push.head_commit ${{ github.event.head_commit }} &&
+          echo push.commits[0] ${{ github.event.commits[0] }} &&
+          echo push.commits[0].id ${{ github.event.commits[0].id }} &&
           echo github.sha ${{ github.sha }} &&
           echo env.HEAD_COMMIT ${{ env.HEAD_COMMIT }}
