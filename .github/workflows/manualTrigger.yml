@@ -4,16 +4,19 @@ on:
     inputs:
       commit:
         description: Commit on which to run CI
-        required: true
+        required: false
+      branch:
+        description: Branch on which to run CI
+        required: false
 
 env:
-  HEAD_COMMIT: ${{ github.event.inputs.commit }}
+  HEAD_COMMIT: ${{ github.event.inputs.commit || github.event.inputs.branch }}
   # HEAD_COMMIT: ${{ github.event.inputs.commit || github.sha }}
 
 jobs:
   job_print_env:
-    name: Print env values
+    name: Print env and GH values
     runs-on: ubuntu-latest
     steps:
       - name: Do printing
-        run: echo ${{ env }}
+        run: echo ${{ env }} && echo ${{ github }}
