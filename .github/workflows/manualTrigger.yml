@@ -24,6 +24,8 @@ jobs:
           echo push.commits[0].id ${{ github.event.commits[0].id }} &&
           echo github.sha ${{ github.sha }} &&
           echo env.HEAD_COMMIT ${{ env.HEAD_COMMIT }}
+      - name: Unconditional Second Step
+        run: echo 'I am the second step and I should always run'
       - name: Test Implicit If Truthy Condition
         if: ${{ github.event.inputs.commit }}
         run: echo 'Implicit Boolean registered as true'
@@ -39,3 +41,5 @@ jobs:
       - name: Test Literal true
         if: ${{ true }}
         run: echo 'Literal true registered as true'
+      - name: Unconditional Step After Ifs
+        run: echo 'I am a step after all the ifs and I should always run'
