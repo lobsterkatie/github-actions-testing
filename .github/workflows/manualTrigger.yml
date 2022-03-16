@@ -23,6 +23,7 @@ jobs:
           echo push.commits[0] ${{ github.event.commits[0] }} &&
           echo push.commits[0].id ${{ github.event.commits[0].id }} &&
           echo github.sha ${{ github.sha }} &&
+          echo github.event_name ${{ github.event_name }} &&
           echo env.HEAD_COMMIT ${{ env.HEAD_COMMIT }}
       - name: Unconditional Second Step
         run: echo 'I am the second step and I should always run'
