@@ -33,10 +33,10 @@ jobs:
         if: ${{ !github.event.inputs.commit }}
         run: echo 'Not Implicit Boolean registered as true'
       - name: Test Equals Empty String Condition
-        if: ${{ github.event.inputs.commit == "" }}
+        if: ${{ github.event.inputs.commit == '' }}
         run: echo 'Equals Empty String registered as true'
       - name: Test Doesn't Equal Empty String Condition
-        if: ${{ github.event.inputs.commit != "" }}
+        if: ${{ github.event.inputs.commit != '' }}
         run: echo 'Doesn't Equal Empty String registered as true'
       - name: Test Literal true
         if: ${{ true }}
