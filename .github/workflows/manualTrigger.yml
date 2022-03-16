@@ -1,6 +1,6 @@
 name: 'Manual Trigger Test'
 on:
-  # push:
+  push:
   workflow_dispatch:
     inputs:
       commit:
