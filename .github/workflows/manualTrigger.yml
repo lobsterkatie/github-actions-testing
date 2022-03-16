@@ -24,9 +24,12 @@ jobs:
           echo push.commits[0].id ${{ github.event.commits[0].id }} &&
           echo github.sha ${{ github.sha }} &&
           echo env.HEAD_COMMIT ${{ env.HEAD_COMMIT }}
-      - name: Test Implicit If Condition
+      - name: Test Implicit If Truthy Condition
         if: ${{ github.event.inputs.commit }}
-        run: echo 'Implicit Falsiness registered as true'
+        run: echo 'Implicit Boolean registered as true'
+      - name: Test Implicit If Falsy Condition
+        if: ${{ !github.event.inputs.commit }}
+        run: echo 'Not Implicit Boolean registered as true'
       - name: Test Equals Empty String Condition
         if: ${{ github.event.inputs.commit == "" }}
         run: echo 'Equals Empty String registered as true'
