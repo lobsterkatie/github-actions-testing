@@ -19,4 +19,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Do printing
-        run: echo env.commit ${{ env.commit }} && echo env.branch ${{ env.branch }} && echo github.sha ${{ github.sha }}
+        run: echo commit ${{ github.event.inputs.commit }} && echo branch ${{ github.event.inputs.branch }} && echo env.HEAD_COMMIT ${{ env.HEAD_COMMIT }} && echo github.sha ${{ github.sha }}
