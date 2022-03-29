@@ -49,9 +49,10 @@ jobs:
       # - name: Put Files in Env
         # run: echo "FILENAMES=$(yarn ts-node readFiles.ts)" >> $GITHUB_ENV
         run: echo "::set-output name=filenames::$(yarn ts-node readFiles.ts)"
+      - name: Print files
+        run: echo ${{ steps.read_files.outputs.filenames }}
     outputs:
       file_list: ${{ steps.read_files.outputs.filenames }}
-      test_output: 'do I show up?'
   job_print_files:
     name: Print node_modules Files
     needs: [job_install_deps, job_read_files]
