@@ -1,6 +1,8 @@
 name: 'Read Files into Env'
 on:
   push:
+env:
+  CACHED_DEPENDENCIES_PATH: ${{ github.workspace }}/node_modules
 
 jobs:
   job_install_deps:
@@ -21,7 +23,7 @@ jobs:
         uses: actions/cache@v2
         id: cache_dependencies
         with:
-          path: ${{ env.CACHED_DEPENDENCY_PATHS }}
+          path: ${{ env.CACHED_DEPENDENCIES_PATH }}
           key: ${{ steps.compute_lockfile_hash.outputs.hash }}
       - name: Install dependencies
         if: steps.cache_dependencies.outputs.cache-hit == ''
