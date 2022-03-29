@@ -17,7 +17,7 @@ jobs:
           path: |
             ${{ github.workspace }}/firstFile.txt
   job_upload_second_artifact:
-    name: Upload Artifact 1
+    name: Upload Artifact 2
     runs-on: ubuntu-latest
     steps:
       - name: Check out current commit (${{ github.sha }})
@@ -27,4 +27,17 @@ jobs:
         with:
           name: ${{ github.sha }}-secondFile.txt
           path: |
+            ${{ github.workspace }}/secondFile.txt
+  job_upload_both_artifacts:
+    name: Upload Both Artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out current commit (${{ github.sha }})
+        uses: actions/checkout@v2
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ github.sha }}
+          path: |
+            ${{ github.workspace }}/firstFile.txt
             ${{ github.workspace }}/secondFile.txt
