@@ -53,8 +53,8 @@ jobs:
       - name: Print files
         # run: echo ${{ env.FILENAMES }}
         run: echo "${{ steps.read_files.outputs.filenames }}"
-      - name: Print cwd
-        run: pwd
+      - name: Print cwd and ls
+        run: pwd && ls
     outputs:
       file_list: ${{ steps.read_files.outputs.filenames }}
   job_print_files:
