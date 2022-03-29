@@ -8,6 +8,8 @@ jobs:
     name: Upload Artifact 1
     runs-on: ubuntu-latest
     steps:
+      - name: Check out current commit (${{ github.sha }})
+        uses: actions/checkout@v2
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -18,6 +20,8 @@ jobs:
     name: Upload Artifact 1
     runs-on: ubuntu-latest
     steps:
+      - name: Check out current commit (${{ github.sha }})
+        uses: actions/checkout@v2
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
