@@ -44,15 +44,16 @@ jobs:
         with:
           path: ${{ env.CACHED_DEPENDENCIES_PATH }}
           key: ${{ needs.job_install_deps.outputs.dependency_cache_key }}
-      # - name: Read Files
-      - name: Put Files in Env
+      - name: Read Files
+      # - name: Put Files in Env
         id: read_files
-        run: echo "FILENAMES=$(yarn ts-node readFiles.ts)" >> $GITHUB_ENV
-        # run: echo "::set-output name=filenames::${{ $(yarn ts-node readFiles.ts) }}"
+        # run: echo "FILENAMES=$(yarn ts-node readFiles.ts)" >> $GITHUB_ENV
+        run: FILENAMES=$(yarn ts-node readFiles.ts) echo "::set-output name=filenames::$FILENAMES"
       - name: Print files
-        run: echo ${{ env.FILENAMES }}
-    # outputs:
-    #   file_list: ${{ steps.read_files.outputs.filenames }}
+        # run: echo ${{ env.FILENAMES }}
+        run: echo ${{ steps.read_files.outputs.filenames }}
+    outputs:
+      file_list: ${{ steps.read_files.outputs.filenames }}
   job_print_files:
     name: Print node_modules Files
     needs: [job_install_deps, job_read_files]
@@ -63,4 +64,5 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v1
       - name: Print Files
-        run: echo ${{ env.FILENAMES }}
+        run: echo ${{ needs.job_read_files.outputs.file_list }}
+        # run: echo ${{ env.FILENAMES }}
