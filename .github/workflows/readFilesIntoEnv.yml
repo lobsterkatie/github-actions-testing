@@ -47,7 +47,9 @@ jobs:
       # - name: Read Files
       - name: Put Files in Env
         id: read_files
-        run: echo "FILENAMES=$(yarn ts-node readFiles.ts)" >> $GITHUB_ENV
+        run: |
+          FILENAMES=$(yarn --silent ts-node readFiles.ts)
+          echo "FILENAMES=$FILENAMES" >> $GITHUB_ENV
         # run: FILENAMES=$(yarn ts-node readFiles.ts) echo "$FILENAMES"
         # run: |
         #   FILENAMES=$(yarn --silent ts-node readFiles.ts)
