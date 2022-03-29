@@ -48,7 +48,7 @@ jobs:
         id: read_files
       # - name: Put Files in Env
         # run: echo "FILENAMES=$(yarn ts-node readFiles.ts)" >> $GITHUB_ENV
-        run: echo "::set-output name=filenames::$(yarn ts-node readFiles.ts)"
+        run: echo "::set-output name=filenames::${{ $(yarn ts-node readFiles.ts) }}"
       - name: Print files
         run: echo ${{ steps.read_files.outputs.filenames }}
     outputs:
