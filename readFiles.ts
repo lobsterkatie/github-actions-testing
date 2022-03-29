@@ -1,6 +1,7 @@
 import * as fs from "fs";
 
-let filesJSON = JSON.stringify(fs.readdirSync("./node_modules"));
+// let filesJSON = JSON.stringify(fs.readdirSync("./node_modules"));
+let filesJSON = JSON.stringify(fs.readdirSync("."));
 // Escape all of the quotes so that when this get parameter-expanded in a quoted
 // bash string, the quotes will still be valid. (We use `split` and `join`
 // because `replaceAll` support requires different tsconfig settings, and this
