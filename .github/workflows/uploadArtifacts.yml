@@ -1,0 +1,26 @@
+name: 'Upload Artifacts'
+on:
+  push:
+  # workflow_dispatch:
+
+jobs:
+  job_upload_first_artifact:
+    name: Upload Artifact 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ github.sha }}-firstFile.txt
+          path: |
+            ${{ github.workspace }}/firstFile.txt
+  job_upload_second_artifact:
+    name: Upload Artifact 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ github.sha }}-secondFile.txt
+          path: |
+            ${{ github.workspace }}/secondFile.txt
