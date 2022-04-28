@@ -9,5 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Do printing
-        run: echo github ${{ toJSON(github) }} &&
+        run: |
+          echo "github ${{ toJSON(github) }}"
           env | sort
