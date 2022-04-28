@@ -13,7 +13,8 @@ jobs:
           env | sort
           echo "Branch: ${GITHUB_REF_NAME}"
           echo "Commit message: ${{ github.event.head_commit.message }}"
-          echo "Commit SHA: ${ GITHUB_SHA }"
+          echo "Commit SHA: ${GITHUB_SHA}"
+          echo "Commit message: echo $(git log -n 1 --pretty=format:%s ${GITHUB_SHA})"
           echo "Trigger: ${{ github.event_name }}"
           echo
           echo "github ${{ toJSON(github) }}"
