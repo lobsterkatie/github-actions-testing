@@ -10,10 +10,10 @@ jobs:
     steps:
       - name: Do printing
         run: |
+          env | sort
           echo "Branch: ${ GITHUB_REF_NAME }"
           echo "Commit message: ${{ github.event.commits[0].message }}"
           echo "Commit SHA: ${ GITHUB_SHA }"
           echo "Trigger: ${{ github.event_name }}"
           echo
           echo "github ${{ toJSON(github) }}"
-          env | sort
