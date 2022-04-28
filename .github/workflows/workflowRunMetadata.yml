@@ -10,5 +10,7 @@ jobs:
     steps:
       - name: Do printing
         run: |
+          echo "Branch: ${GITHUB_REF_NAME}"
+          echo "Branch: ${{ env.GITHUB_REF_NAME }}"
           echo "github ${{ toJSON(github) }}"
           env | sort
