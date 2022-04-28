@@ -9,5 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Do printing
-        run: echo github.event ${{ github.event }} &&
-          echo env ${{ env }}
+        run: echo github.event ${{ toJSON(github.event) }} &&
+          echo env ${{ toJSON(env) }}
