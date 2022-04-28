@@ -17,4 +17,5 @@ jobs:
           echo "Commit message: echo $(git log -n 1 --pretty=format:%s ${GITHUB_SHA})"
           echo "Trigger: ${{ github.event_name }}"
           echo
+          echo
           echo "github ${{ toJSON(github) }}"
