@@ -1,0 +1,13 @@
+name: 'Get GHA Run Metadata'
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  job_print_env:
+    name: Print env and GH Event values
+    runs-on: ubuntu-latest
+    steps:
+      - name: Do printing
+        run: echo github.event ${{ github.event }} &&
+          echo env ${{ env }}
