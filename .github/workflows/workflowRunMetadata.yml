@@ -22,6 +22,8 @@ jobs:
   job_branch_name:
     name: Branch ${{ github.ref_name }}
     runs-on: ubuntu-latest
+    steps:
+      - run: echo ""
   job_metadata:
     name: GHA Metadata
     runs-on: ubuntu-latest
