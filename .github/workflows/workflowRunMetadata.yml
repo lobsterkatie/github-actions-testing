@@ -35,6 +35,6 @@ jobs:
       - name: "Commit: '${{ github.event.head_commit.message }}' (${{ github.sha }})"
         run: echo ""
       - name: Export variable
-        run: echo "{SOME_VAR}={hi}" >> $GITHUB_ENV
+        run: echo "{COMMIT_MESSAGE}={$(git log -n 1 --pretty=format:%s ${GITHUB_SHA})}" >> $GITHUB_ENV
       - name: Read variable
-        run: echo "SOME_VAR is ${SOME_VAR}"
+        run: echo "COMMIT_MESSAGE is ${{ env.COMMIT_MESSAGE }}"
