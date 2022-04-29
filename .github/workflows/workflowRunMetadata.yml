@@ -34,9 +34,11 @@ jobs:
         uses: actions/checkout@v2
       - name: Get commit message
         run: echo "COMMIT_MESSAGE=$(git log -n 1 --pretty=format:%s ${GITHUB_SHA})" >> $GITHUB_ENV
-      - name: "Branch: '${{ github.ref_name }}'"
+      - name: "Branch:  '${{ github.ref_name }}'"
         run: echo ""
-      - name: "Commit: '${{ env.COMMIT_MESSAGE }}' (${{ github.sha }})"
+      - name: "Commit:   '${{ env.COMMIT_MESSAGE }}'"
+        run: echo ""
+      - name: "SHA: ${{ github.sha }}"
         run: echo ""
       - name: Read variable
         run: echo "COMMIT_MESSAGE is ${{ env.COMMIT_MESSAGE }}"
