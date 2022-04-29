@@ -40,3 +40,5 @@ jobs:
         run: echo "COMMIT_MESSAGE=$(git log -n 1 --pretty=format:%s ${GITHUB_SHA})" >> $GITHUB_ENV
       - name: Read variable
         run: echo "COMMIT_MESSAGE is ${{ env.COMMIT_MESSAGE }}"
+      - name: Use in step name - ${{ env.COMMIT_MESSAGE }}
+        run: echo ""
