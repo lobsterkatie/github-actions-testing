@@ -8,6 +8,8 @@ jobs:
     name: Print env and GH Event values
     runs-on: ubuntu-latest
     steps:
+      - name: Check out current commit
+        uses: actions/checkout@v2
       - name: Do printing
         run: |
           env | sort
