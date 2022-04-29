@@ -36,7 +36,7 @@ jobs:
         run: echo "COMMIT_MESSAGE=$(git log -n 1 --pretty=format:%s ${GITHUB_SHA})" >> $GITHUB_ENV
       - name: "Branch:  '${{ github.ref_name }}'"
         run: echo ""
-      - name: "Commit:   '${{ env.COMMIT_MESSAGE }}'"
+      - name: "Commit: - '${{ env.COMMIT_MESSAGE }}'"
         run: echo ""
       - name: "SHA: ${{ github.sha }}"
         run: echo ""
