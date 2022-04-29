@@ -30,6 +30,8 @@ jobs:
     name: GHA Metadata
     runs-on: ubuntu-latest
     steps:
+      - name: Check out current commit
+        uses: actions/checkout@v2
       - name: "Branch: '${{ github.ref_name }}'"
         run: echo ""
       - name: "Commit: '${{ github.event.head_commit.message }}' (${{ github.sha }})"
