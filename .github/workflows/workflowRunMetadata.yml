@@ -27,4 +27,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Branch ${{ github.ref_name }}
+        run: echo ""
       - name: Commit ${{ github.sha }} - ${{ github.event.head_commit.message }}
+        run: echo ""
