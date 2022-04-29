@@ -32,12 +32,12 @@ jobs:
     steps:
       - name: Check out current commit
         uses: actions/checkout@v2
+      - name: Get commit message
+        run: echo "COMMIT_MESSAGE=$(git log -n 1 --pretty=format:%s ${GITHUB_SHA})" >> $GITHUB_ENV
       - name: "Branch: '${{ github.ref_name }}'"
         run: echo ""
-      - name: "Commit: '${{ github.event.head_commit.message }}' (${{ github.sha }})"
+      - name: "Commit: '${{ env.COMMIT_MESSAGE }}' (${{ github.sha }})"
         run: echo ""
-      - name: Export variable
-        run: echo "COMMIT_MESSAGE=$(git log -n 1 --pretty=format:%s ${GITHUB_SHA})" >> $GITHUB_ENV
       - name: Read variable
         run: echo "COMMIT_MESSAGE is ${{ env.COMMIT_MESSAGE }}"
       - name: Use in step name - ${{ env.COMMIT_MESSAGE }}
