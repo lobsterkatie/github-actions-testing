@@ -34,3 +34,7 @@ jobs:
         run: echo ""
       - name: "Commit: '${{ github.event.head_commit.message }}' (${{ github.sha }})"
         run: echo ""
+      - name: Export variable
+        run: export SOME_VAR="hi"
+      - name: Read variable
+        run: echo "SOME_VAR is ${SOME_VAR}"
