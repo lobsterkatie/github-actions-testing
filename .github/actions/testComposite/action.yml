@@ -12,10 +12,10 @@ runs:
       run: echo "test variable, set in calling workflow - $CALLER_VAR_NO_EXPORT"
     - name: Set env variable - export
       shell: "bash"
-      run: export COMPOSITE_VAR_EXPORT='cat'"
+      run: export COMPOSITE_VAR_EXPORT='cat'
     - name: Set env variable - no export
       shell: "bash"
-      run: export COMPOSITE_VAR_NO_EXPORT='bat'"
+      run: export COMPOSITE_VAR_NO_EXPORT='bat'
     - name: Look for file from caller
       shell: bash
       run: echo "CALLER FILE" && cat callerFile.txt
