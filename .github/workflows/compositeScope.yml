@@ -1,0 +1,24 @@
+name: 'Composite Scope Test'
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  job_test_scope:
+    name: Set env vars
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set env variable - export
+      run: export CALLER_VAR_EXPORT="hat"
+    - name: Set env variable - no export
+      run: CALLER_VAR_NO_EXPORT="rat"
+    - name: Create file
+      run: echo "This file was created in the calling workflow" > callerFile.txt
+    - name: Run composite action
+      uses: .github/actions/testComposite
+    - name: Get env variable - export
+      run: echo "test variable, set in composite action - $COMPOSITE_VAR_EXPORT"
+    - name: Get env variable - no export
+      run: echo "test variable, set in composite action - $COMPOSITE_VAR_NO_EXPORT"
+    - name: Look for file from composite
+      run: echo "COMPOSITE FILE" && cat compositeFile.txt

@@ -1,0 +1,24 @@
+name: Test Composite Actions
+description: "Testing scope of composite actions"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Get env variable - export
+      shell: "bash"
+      run: echo "test variable, set in calling workflow - $CALLER_VAR_EXPORT"
+    - name: Get env variable - no export
+      shell: "bash"
+      run: echo "test variable, set in calling workflow - $CALLER_VAR_NO_EXPORT"
+    - name: Set env variable - export
+      shell: "bash"
+      run: export COMPOSITE_VAR_EXPORT='cat'"
+    - name: Set env variable - no export
+      shell: "bash"
+      run: export COMPOSITE_VAR_NO_EXPORT='bat'"
+    - name: Look for file from caller
+      shell: bash
+      run: echo "CALLER FILE" && cat callerFile.txt
+    - name: Create file
+      shell: bash
+      run: echo "This file is from inside the composite action" > compositeFile.txt
