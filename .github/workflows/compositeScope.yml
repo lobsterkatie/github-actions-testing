@@ -8,6 +8,8 @@ jobs:
     name: Set env vars
     runs-on: ubuntu-latest
     steps:
+    - name: Check out current commit (${{ github.sha }})
+      uses: actions/checkout@v2
     - name: Set env variable - export
       run: export CALLER_VAR_EXPORT="hat"
     - name: Set env variable - no export
