@@ -1,6 +1,6 @@
 name: 'Get GHA Run Metadata'
 on:
-  push:
+  # push:
   workflow_dispatch:
 
 jobs:
