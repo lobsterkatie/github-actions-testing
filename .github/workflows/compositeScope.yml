@@ -15,7 +15,7 @@ jobs:
     - name: Create file
       run: echo "This file was created in the calling workflow" > callerFile.txt
     - name: Run composite action
-      uses: .github/actions/testComposite
+      uses: ./.github/actions/testComposite
     - name: Get env variable - export
       run: echo "test variable, set in composite action - $COMPOSITE_VAR_EXPORT"
     - name: Get env variable - no export
